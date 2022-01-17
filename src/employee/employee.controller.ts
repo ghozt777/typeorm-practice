@@ -15,8 +15,13 @@ export class EmployeeController {
         return this.employeeService.queryAllEmployees();
     }
 
-    @Get('/:id')
+    @Get('/emp/:id')
     getSpecificEmployee(@Param('id', ParseIntPipe) id: number) {
         return this.employeeService.querySpecificEmployee(id);
+    }
+
+    @Get('/managers')
+    getManagers() {
+        return this.employeeService.getManager();
     }
 }

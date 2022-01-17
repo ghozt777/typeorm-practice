@@ -42,12 +42,16 @@ export class EmployeeService {
         };
     }
 
-    async getManager(){
+    async getManager(): Promise<EmployeeResponseType>{
         const query = `SELECT branch.branch_name as branch, 
         concat(employee.first_name, ' ' , employee.last_name) as manager from branch 
         join employee`
-
-        
+        const managers = await this.employeeRepository.query(query) ;
+        return {
+            statusCode: HttpStatus.OK,
+            success: true,
+            employee: managers ?? null
+        };
     }
 
 

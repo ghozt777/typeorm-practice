@@ -5,9 +5,10 @@ import { BranchModule } from './branch/branch.module';
 import { DatabaseModule } from './database/database.module';
 import { EmployeeModule } from './employee/employee.module';
 import { LoggerModule } from './logger/logger.module';
+import { LoginModule } from './login/login.module';
 
 @Module({
-  imports: [EmployeeModule, DatabaseModule, LoggerModule, BranchModule],
+  imports: [EmployeeModule, DatabaseModule, LoggerModule, BranchModule, LoginModule],
   controllers: [AppController],
   providers: [AppService],
 })
